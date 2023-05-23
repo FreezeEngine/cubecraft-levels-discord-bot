@@ -2,7 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('cubecraft_achive')
+        .setName('cubexp')
         .setDescription('Calculate how much xp or games you need to achive a level!')
         .addStringOption(option =>
             option.setName('level')
