@@ -3,6 +3,9 @@ const { Client, Events, Collection, GatewayIntentBits } = require('discord.js');
 const path = require("node:path");
 const fs = require("node:fs");
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 // Create a new client instance
 const discord_client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
