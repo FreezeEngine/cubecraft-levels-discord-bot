@@ -5,18 +5,19 @@ module.exports = {
         .setName('cubexp')
         .setDescription('Calculate how much xp or games you need to achive a level!')
         .addStringOption(option =>
-            option.setName('level')
+            option.setName('current_level')
+                .setDescription('Your current cubecraft level!')
+                .setAutocomplete(true)
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('level_to_be')
                 .setDescription('A level you want to achive!')
                 .setAutocomplete(true)
                 .setRequired(true))
         .addStringOption(option =>
-            option.setName('current_level')
-            .setDescription('Your current cubecraft level!')
-            .setAutocomplete(true))
-        .addStringOption(option =>
             option.setName('current_xp')
                 .setDescription('Your current XP progression!')
-                .setAutocomplete(true)),
+                .setAutocomplete(false)),
     async autocomplete(interaction) {
         const filtered = [
             "150",
@@ -30,7 +31,7 @@ module.exports = {
         ).catch(e => console.log(e));
     },
     async execute(interaction) {
-        let level = interaction.options.getString('level')
+        let level = interaction.options.getString('level_to_be')
         let current_level = interaction.options.getString('current_level') ?? 1
         let current_xp = interaction.options.getString('current_xp') ?? 0
 
